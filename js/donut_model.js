@@ -12,42 +12,46 @@ var donutShop = function(storeLocation, storeHours, minCustPerHour, maxCustPerHo
     this.calcStoreSum = 0;
 };
 
-// calculates donut demand per hour using a randomly generated number of customers
-donutShop.prototype.randomDonutPerHour = function getRandomInt(minCustPerHour, maxCustPerHour) {
-    return (Math.floor(Math.random( ) * 100 + 1)) * this.avgDonutPerHour;
+// Calculates hourlyDemand and puts the output into an array
+donutShop.prototype.dailyDemand = function( ) {
+    for(var i = 0; i < this.storeHours; i++) {
+        this.storeDemandArray.push((Math.floor(Math.random( ) * 100 + 1)) * this.avgDonutPerHour);
+    }
 };
 
-// Calculates hourlyDemand and puts the output into an Array; Sums store's hourlyDemand
-donutShop.prototype.dailyDemand = function( ) {
-    var hourlyDemand = 0;
-    for(var i = 0; i < this.storeHours; i++) {
-        hourlyDemand = this.randomDonutPerHour([i]);
-        this.storeDemandArray.push(hourlyDemand);
-        this.calcStoreSum = this.calcStoreSum + this.hourlyDemand;
-    }
-    return this.calcStoreSum;
+// Renders dailyDemand information by creating new table rows and populating our table
+donutShop.prototype.render = function( ) {
+  var getTable = document.getElementById('Donut-Shops');
+  var newRow = document.createElement('tr');
+  newRow.id = this.storeLocation;
+  newRow.innerHTML = this.storeLocation;
+  getTable.appendChild(newRow);
+  this.dailyDemand( );
+
+  // Creates table row data, appends data by store location and calcs daily sum
+  for(var i =0; i < this.storeHours; i++) {
+      var newCell = document.createElement('td');
+      newCell.innerHTML = this.storeDemandArray[i];
+      newRow.appendChild(newCell);
+      this.calcStoreSum += this.storeDemandArray[i];
+  };
+
+  // Appends the daily total (or sum) to the table
+  var newCell = document.createElement('td');
+  newCell.innerHTML = this.calcStoreSum;
+  newRow.appendChild(newCell);
 };
 
 // create instances of each Top Pot store location
 var location1 = new donutShop('Downtown', 11, 8, 43, 4.50);
 var location2 = new donutShop('Capitol Hill', 11, 4, 37, 2.00);
-var location3 = new donutShop('South Lake Union', 11, 9, 23, 6.33);
+var location3 = new donutShop('South Lake Union', 11, 9, 23, 6.25);
 var location4 = new donutShop('Wedgewood', 11, 2, 28, 1.25);
 var location5 = new donutShop('Ballard', 11, 8, 58, 3.75);
 
-location1.dailyDemand( );
-location2.dailyDemand( );
-location3.dailyDemand( );
-location4.dailyDemand( );
-location5.dailyDemand( );
-
-
-var storeTable = document.getElementById('store-table');
-
-function addToStoreList(xx) {
-  var storeListItem = document.createElement('tr');
-  var storeNode = document.createTextNode(xx);
-  storeListItem.appendChild(storeNode);
-  document.getElementById('store-table').appendChild(storeListItem);
-}
+location1.render( );
+location2.render( );
+location3.render( );
+location4.render( );
+location5.render( );
 
