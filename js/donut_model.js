@@ -42,6 +42,21 @@ donutShop.prototype.render = function( ) {
   newRow.appendChild(newCell);
 };
 
+// creating variables from form fields and callng render on the array
+var newStoreButton = document.getElementById('formButton');
+var renderFormSubmits = function(e) {
+  e.preventDefault( );
+  var storeLocationForm = document.getElementById('storeLocationForm').value;
+  console.log('yo');
+  var storeHoursForm = document.getElementById('storeHoursForm').value;
+  var minCustPerHourForm = document.getElementById('minCustPerHourForm').value;
+  var maxCustPerHourForm = document.getElementById('maxCustPerHourForm').value;
+  var avgDonutPerHourForm = document.getElementById('avgDonutPerHourForm').value;
+  var newLocation = new donutShop(storeLocationForm, storeHoursForm, minCustPerHourForm, maxCustPerHourForm, avgDonutPerHourForm)
+  newLocation.render( );
+};
+newStoreButton.addEventListener('click', renderFormSubmits);
+
 // create instances of each Top Pot store location
 var location1 = new donutShop('Downtown', 11, 8, 43, 4.50);
 var location2 = new donutShop('Capitol Hill', 11, 4, 37, 2.00);
