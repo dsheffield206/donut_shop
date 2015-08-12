@@ -34,7 +34,7 @@ donutShop.prototype.render = function( ) {
       newCell.innerHTML = this.storeDemandArray[i];
       newRow.appendChild(newCell);
       this.calcStoreSum += this.storeDemandArray[i];
-  };
+  }
 
   // Appends the daily total (or sum) to the table
   var newCell = document.createElement('td');
@@ -51,10 +51,21 @@ var renderFormSubmits = function(e) {
   var minCustPerHourForm = document.getElementById('minCustPerHourForm').value;
   var maxCustPerHourForm = document.getElementById('maxCustPerHourForm').value;
   var avgDonutPerHourForm = document.getElementById('avgDonutPerHourForm').value;
-  var newLocation = new donutShop(storeLocationForm, storeHoursForm, minCustPerHourForm, maxCustPerHourForm, avgDonutPerHourForm)
+  console.log(storeLocationForm, storeHoursForm, minCustPerHourForm, maxCustPerHourForm, avgDonutPerHourForm)
+  var newLocation = new donutShop(storeLocationForm, storeHoursForm, minCustPerHourForm, maxCustPerHourForm, avgDonutPerHourForm);
+  // Overwrites a table row if it already exists
+  if(document.getElementById(this.storeLocation)) {
+    var overwrite = document.getElementById(this.storeLocation).childNodes;
+    for(var j = 1; j < (this.storeHoursForm - 1); j++) {
+       overwrite[j].innerHTML = this.storeDemandArray[j-1];
+     }
+       overwrite[(this.storeHoursForm - 1)].innerHTML = this.calcStoreSum;
+  } else {
   newLocation.render( );
+ }
 };
 newStoreButton.addEventListener('click', renderFormSubmits);
+
 
 // create instances of each Top Pot store location
 var location1 = new donutShop('Downtown', 11, 8, 43, 4.50);
