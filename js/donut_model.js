@@ -13,9 +13,9 @@ var donutShop = function(storeLocation, storeHours, minCustPerHour, maxCustPerHo
 };
 
 // Calculates hourlyDemand and puts the output into an array
-donutShop.prototype.dailyDemand = function( ) {
+donutShop.prototype.dailyDemand = function(minCustPerHour, maxCustPerHour) {
     for(var i = 0; i < this.storeHours; i++) {
-        this.storeDemandArray.push((Math.floor(Math.random( ) * 100 + 1)) * this.avgDonutPerHour);
+        this.storeDemandArray.push((Math.floor(Math.random( ) * (this.maxCustPerHour - this.minCustPerHour)) + this.minCustPerHour) * this.avgDonutPerHour);
     }
 };
 
@@ -47,7 +47,6 @@ var newStoreButton = document.getElementById('formButton');
 var renderFormSubmits = function(e) {
   e.preventDefault( );
   var storeLocationForm = document.getElementById('storeLocationForm').value;
-  console.log('yo');
   var storeHoursForm = document.getElementById('storeHoursForm').value;
   var minCustPerHourForm = document.getElementById('minCustPerHourForm').value;
   var maxCustPerHourForm = document.getElementById('maxCustPerHourForm').value;
