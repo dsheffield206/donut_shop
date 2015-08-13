@@ -22,24 +22,24 @@ donutShop.prototype.dailyDemand = function(minCustPerHour, maxCustPerHour) {
 // Renders dailyDemand information by creating new table rows and populating our table
 donutShop.prototype.render = function( ) {
   var getTable = document.getElementById('Donut-Shops');
-  var newRow = document.createElement('tr');
-  newRow.id = this.storeLocation;
-  newRow.innerHTML = this.storeLocation;
-  getTable.appendChild(newRow);
+  var tableRow = document.createElement('tr');
+  tableRow.id = this.storeLocation;
+  tableRow.innerHTML = this.storeLocation;
+  getTable.appendChild(tableRow);
   this.dailyDemand( );
 
   // Creates table row data, appends data by store location and calcs daily sum
   for(var i =0; i < this.storeHours; i++) {
-      var newCell = document.createElement('td');
-      newCell.innerHTML = this.storeDemandArray[i];
-      newRow.appendChild(newCell);
+      var tableCell = document.createElement('td');
+      tableCell.innerHTML = this.storeDemandArray[i];
+      tableRow.appendChild(tableCell);
       this.calcStoreSum += this.storeDemandArray[i];
   }
 
   // Appends the daily total (or sum) to the table
-  var newCell = document.createElement('td');
-  newCell.innerHTML = this.calcStoreSum;
-  newRow.appendChild(newCell);
+  var tableCell = document.createElement('td');
+  tableCell.innerHTML = this.calcStoreSum;
+  tableRow.appendChild(tableCell);
 };
 
 // creating variables from form fields and callng render on the array
