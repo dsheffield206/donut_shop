@@ -8,38 +8,51 @@ var donutShop = function(storeLocation, storeHours, minCustPerHour, maxCustPerHo
     this.minCustPerHour = minCustPerHour;
     this.maxCustPerHour = maxCustPerHour;
     this.avgDonutPerHour = avgDonutPerHour;
-    this.storeDemandArray = [ ];
-    this.calcStoreSum = 0;
 };
 
 // Calculates hourlyDemand and puts the output into an array
 donutShop.prototype.dailyDemand = function(minCustPerHour, maxCustPerHour) {
+  var donutDemand = [ ];
     for(var i = 0; i < this.storeHours; i++) {
-        Math.floor(this.storeDemandArray.push((Math.floor(Math.random( ) * (this.maxCustPerHour - this.minCustPerHour)) + this.minCustPerHour) * this.avgDonutPerHour));
+        donutDemand.push(Math.floor(((Math.random( ) * (this.maxCustPerHour - this.minCustPerHour)) + this.minCustPerHour) * this.avgDonutPerHour));
     }
+    return donutDemand;
 };
 
 // Renders dailyDemand information by creating new table rows and populating our table
 donutShop.prototype.render = function( ) {
   var getTable = document.getElementById('Donut-Shops');
   var tableRow = document.createElement('tr');
+  var storeDemandArray = this.dailyDemand( );
+  var calcStoreSum = 0;
+
+  // Overwrites a store's table row if it already exists
+  if(document.getElementById(this.storeLocation)) {
+    var overwrite = document.getElementById(this.storeLocation).childNodes;
+    for(var j = 1; j < overwrite.length - 1; j++) {
+       overwrite[j].innerHTML = storeDemandArray[j-1];
+       calcStoreSum += storeDemandArray[j - 1];
+    }
+    overwrite[overwrite.length - 1].innerHTML = calcStoreSum;
+
+  } else {
+
+  // Creates table row data, appends data by store location and calcs daily sum
   tableRow.id = this.storeLocation;
   tableRow.innerHTML = this.storeLocation;
   getTable.appendChild(tableRow);
-  this.dailyDemand( );
-
-  // Creates table row data, appends data by store location and calcs daily sum
   for(var i =0; i < this.storeHours; i++) {
       var tableCell = document.createElement('td');
-      tableCell.innerHTML = this.storeDemandArray[i];
+      tableCell.innerHTML = storeDemandArray[i];
       tableRow.appendChild(tableCell);
-      this.calcStoreSum += this.storeDemandArray[i];
-  }
+      calcStoreSum += storeDemandArray[i];
+      }
 
   // Appends the daily total (or sum) to the table
-  var tableCell = document.createElement('td');
-  tableCell.innerHTML = this.calcStoreSum;
-  tableRow.appendChild(tableCell);
+  var dailySum = document.createElement('td');
+      dailySum.innerHTML = calcStoreSum;
+      tableRow.appendChild(dailySum);
+  }
 };
 
 // creating variables from form fields and callng render on the array
@@ -51,18 +64,9 @@ var renderFormSubmits = function(e) {
   var minCustPerHourForm = document.getElementById('minCustPerHourForm').value;
   var maxCustPerHourForm = document.getElementById('maxCustPerHourForm').value;
   var avgDonutPerHourForm = document.getElementById('avgDonutPerHourForm').value;
-  console.log(storeLocationForm, storeHoursForm, minCustPerHourForm, maxCustPerHourForm, avgDonutPerHourForm)
+  console.log(storeLocationForm, storeHoursForm, minCustPerHourForm, maxCustPerHourForm, avgDonutPerHourForm);
   var newLocation = new donutShop(storeLocationForm, storeHoursForm, minCustPerHourForm, maxCustPerHourForm, avgDonutPerHourForm);
-  // Overwrites a table row if it already exists
-  if(document.getElementById(this.storeLocation)) {
-    var overwrite = document.getElementById(this.storeLocation).childNodes;
-    for(var j = 1; j < (this.storeHoursForm - 1); j++) {
-       overwrite[j].innerHTML = this.storeDemandArray[j-1];
-     }
-       overwrite[(this.storeHoursForm - 1)].innerHTML = this.calcStoreSum;
-  } else {
   newLocation.render( );
- }
 };
 newStoreButton.addEventListener('click', renderFormSubmits);
 
