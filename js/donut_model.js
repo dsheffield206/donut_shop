@@ -15,7 +15,7 @@ var donutShop = function(storeLocation, storeHours, minCustPerHour, maxCustPerHo
 // Calculates hourlyDemand and puts the output into an array
 donutShop.prototype.dailyDemand = function(minCustPerHour, maxCustPerHour) {
     for(var i = 0; i < this.storeHours; i++) {
-        this.storeDemandArray.push((Math.floor(Math.random( ) * (this.maxCustPerHour - this.minCustPerHour)) + this.minCustPerHour) * this.avgDonutPerHour);
+        Math.floor(this.storeDemandArray.push((Math.floor(Math.random( ) * (this.maxCustPerHour - this.minCustPerHour)) + this.minCustPerHour) * this.avgDonutPerHour));
     }
 };
 
