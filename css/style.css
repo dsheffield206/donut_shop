@@ -80,6 +80,15 @@ form {
 #formButton {
   margin-top: 7px; }
 
+#formButton:hover {
+  background-color: #382513;
+  color: #F2F2F2;
+  -webkit-transform: scale(1.3);
+     -moz-transform: scale(1.3);
+      -ms-transform: scale(1.3);
+       -o-transform: scale(1.3);
+          transform: scale(1.3);}
+
 legend {
   font-family: Arial;
   font-weight: bold;
