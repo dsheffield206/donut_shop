@@ -60,10 +60,10 @@ var newStoreButton = document.getElementById('formButton');
 var renderFormSubmits = function(e) {
   e.preventDefault( );
   var storeLocationForm = document.getElementById('storeLocationForm').value;
-  var storeHoursForm = document.getElementById('storeHoursForm').value;
-  var minCustPerHourForm = document.getElementById('minCustPerHourForm').value;
-  var maxCustPerHourForm = document.getElementById('maxCustPerHourForm').value;
-  var avgDonutPerHourForm = document.getElementById('avgDonutPerHourForm').value;
+  var storeHoursForm = parseInt(document.getElementById('storeHoursForm').value);
+  var minCustPerHourForm = parseInt(document.getElementById('minCustPerHourForm').value);
+  var maxCustPerHourForm = parseInt(document.getElementById('maxCustPerHourForm').value);
+  var avgDonutPerHourForm = parseInt(document.getElementById('avgDonutPerHourForm').value);
   console.log(storeLocationForm, storeHoursForm, minCustPerHourForm, maxCustPerHourForm, avgDonutPerHourForm);
   var newLocation = new donutShop(storeLocationForm, storeHoursForm, minCustPerHourForm, maxCustPerHourForm, avgDonutPerHourForm);
   newLocation.render( );
