@@ -2,21 +2,23 @@
 /* TABLE OF CONENTS */
 
 html {
-  margin: 0px;
+  margin-top: 0px;
   padding: 0px 0px 0px 0px; }
 
 .header {
   background-color: #000000;
-  margin-top: -20px;
+  margin-top: 0px;
   margin: 0px auto;
-  width: 1275px;
-  height: 150px;
+  width: 100%;
+  height: 120px;
   padding: 0px 0px 0px 0px; }
 
 .header h1 {
   background-color: #000000;
   text-indent: 10px;
-  width: 625px; }
+  width: 625px;
+  margin-top: 0px;
+  padding: 10px 0px 0px 0px; }
 
 .header p {
   background-color: #000000;
@@ -25,41 +27,79 @@ html {
 
 .logo {
   position: absolute;
+  margin-top: -60px;
   right: 15px;
   float: right; }
 
 body {
-  background-color: #A59E8C; }
+  background-color: #A59E8C;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 7px;
+  margin-right 0px;
+  padding: 0px 0px 0px 0px; }
 
 h1, h2, h3 {
   background-color: #21455B;
   color: #F2F2F2; }
 
+.top_section {
+  margin-top: 0px;
+  padding: 0px 0px 0px 0px;
+  width: 100%; }
+
 .top_section img {
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  padding: 0px 0px 0px 0px;
   max-width: 30%; }
 
 .top_section p {
-  max-width: 30%; }
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  padding: 0px 0px 0px 0px;
+  background-color: #A59E8C;
+  display: inline;
+  max-width: 30%;
+  text-align: center; }
 
 form {
+  margin-top: -285px;
+  margin-left: 0px;
+  margin-right: 10px;
+  margin-bottom: 0px;
+  padding: 0px 0px 0px 0px;
   background-color: #567D8C;
+  max-width: 30%;
   float: right; }
+
+#formButton {
+  margin-top: 7px; }
 
 legend {
   font-family: Arial;
   font-weight: bold;
   color: #F2F2F2;
-  max-width: 30%;
-  display: block;
-  padding-left: 2px;
-  padding-right: 2px;
+  max-width: 70%;
   border: none; }
 
 p {
   background-color: #8C8372; }
 
-div {
-  background-color: #A59E8C; }
+.middle_section p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 0px 0px 0px 0px;
+  width: 100%; }
+
+.middle_section h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 0px 0px 0px 0px; }
 
 table, th, td {
   background-color: #21455B;
@@ -69,14 +109,32 @@ table, th, td {
   text-align: right;
   border: 2px solid black;
   border-collapse: collapse;
-  border-spacing: 0.5em;
-  clear: both; }
+  border-spacing: 0.5em; }
 
 td {
   background-color: #567D8C; }
 
 th, td {
   padding: 4px; }
+
+.bottom_section img {
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  padding: 0px 0px 0px 0px;
+  max-width: 40%;
+  float: right; }
+
+.bottom_section p {
+  margin-top: 25px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  padding: 0px 0px 0px 0px;
+  background-color: #A59E8C;
+  display: inline;
+  max-width: 30%; }
 
 
 
