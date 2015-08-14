@@ -1,43 +1,64 @@
 /* This is a CSS Stylesheet for David's Donut Shop Project */
 /* TABLE OF CONENTS */
 
+
+.header {
+  background-color: #000000;
+  margin-top: -20px;
+  margin: 0px auto;
+  width: 1250px;
+  height: 150px;
+  padding: 0px 0px 0px 0px; }
+
+.header h1 {
+  background-color: #000000;
+  text-indent: 10px;
+  width: 625px; }
+
+.header p {
+  background-color: #000000;
+  color: #F2F2F2;
+  text-indent: 10px; }
+
+.logo {
+  position: absolute;
+  right: 15px;
+  margin: 0px auto;
+  float: right; }
+
 body {
-  background-color: #A59E8C;
-}
+  background-color: #A59E8C; }
 
 h1, h2, h3 {
   background-color: #21455B;
-  color: #F2F2F2;
-}
+  color: #F2F2F2; }
 
 form {
   background-color: #567D8C;
-  clear: left;
-}
+  clear: left; }
 
 p {
-  background-color: #8C8372;
-}
+  background-color: #8C8372; }
 
 div {
-  background-color: #A59E8C;
-}
+  background-color: #A59E8C; }
 
 table, th, td {
   background-color: #21455B;
   color: #F2F2F2;
   font-family: Arial;
+  font-size: 90%;
   text-align: right;
   border: 2px solid black;
   border-collapse: collapse;
   border-spacing: 0.5em;
-  clear: both;
-}
+  clear: both; }
+
+td {
+  background-color: #567D8C; }
 
 th, td {
-  padding: 5px;
-
-}
+  padding: 4px; }
 
 
 
