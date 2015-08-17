@@ -15,14 +15,17 @@ html {
 
 .header h1 {
   background-color: #000000;
+  font-size: 200%;
   text-indent: 10px;
   width: 625px;
   margin-top: 0px;
+  margin-bottom: 15px;
   padding: 10px 0px 0px 0px; }
 
 .header p {
   background-color: #000000;
   color: #F2F2F2;
+  font-size: 125%;
   text-indent: 10px; }
 
 .logo {
@@ -56,6 +59,11 @@ h1, h2, h3 {
   padding: 0px 0px 0px 0px;
   max-width: 30%; }
 
+#nut {
+  margin-left: 140px;
+  padding: 0px 0px 0px 0px;
+}
+
 .top_section p {
   margin-top: 0px;
   margin-left: 0px;
@@ -68,7 +76,7 @@ h1, h2, h3 {
   text-align: center; }
 
 form {
-  margin-top: -285px;
+  margin-top: 15px;
   margin-left: 0px;
   margin-right: 10px;
   margin-bottom: 0px;
@@ -100,15 +108,17 @@ p {
   background-color: #8C8372; }
 
 .middle_section p {
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-top: 25px;
+  margin-bottom: 20px;
   padding: 0px 0px 0px 0px;
   width: 100%; }
 
 .middle_section h3 {
+  width: 869px;
   margin-top: 0px;
-  margin-bottom: 0px;
-  padding: 0px 0px 0px 0px; }
+  margin-bottom: -18px;
+  padding: 0px 0px 0px 0px;
+  border: 1px solid black; }
 
 table, th, td {
   background-color: #21455B;
@@ -127,7 +137,7 @@ th, td {
   padding: 4px; }
 
 .bottom_section img {
-  margin-top: 0px;
+  margin-top: -275px;
   margin-left: 0px;
   margin-right: 0px;
   margin-bottom: 0px;
@@ -136,14 +146,16 @@ th, td {
   float: right; }
 
 .bottom_section p {
-  margin-top: 25px;
   margin-left: 0px;
   margin-right: 0px;
   margin-bottom: 0px;
   padding: 0px 0px 0px 0px;
   background-color: #A59E8C;
-  display: inline;
-  max-width: 30%; }
+  display: inline; }
+
+  #bottom_container {
+    margin-top: 20px;
+    max-width: 60%; }
 
 
 
